@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Drink Order System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">🥤 Sip & Joy</div>
+        <div class="nav-links">
+            <button class="nav-btn active" data-target="frontend-view">前台點餐</button>
+            <button class="nav-btn" data-target="backend-view">後台管理</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Frontend View -->
+        <section id="frontend-view" class="view active">
+            <div class="pos-layout">
+                <div class="menu-section">
+                    <h2>選擇飲品</h2>
+                    <div class="category-filters">
+                        <button class="filter-btn active" data-category="all">全部</button>
+                        <button class="filter-btn" data-category="tea">純茶</button>
+                        <button class="filter-btn" data-category="milk-tea">奶茶</button>
+                        <button class="filter-btn" data-category="special">特調</button>
+                    </div>
+                    <div class="menu-grid" id="menu-grid">
+                        <!-- Menu items injected via JS -->
+                    </div>
+                </div>
+                <div class="cart-section">
+                    <h2>結帳清單</h2>
+                    <div class="cart-items" id="cart-items">
+                        <!-- Cart items injected via JS -->
+                        <div class="empty-cart">購物車是空的</div>
+                    </div>
+                    <div class="cart-summary">
+                        <div class="summary-row">
+                            <span>小計</span>
+                            <span id="subtotal">$0</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>總計</span>
+                            <span id="total">$0</span>
+                        </div>
+                        <button class="checkout-btn" id="checkout-btn" disabled>確認結帳</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Backend View -->
+        <section id="backend-view" class="view">
+            <div class="dashboard">
+                <h2>營收總覽</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>今日總營收</h3>
+                        <p class="stat-value" id="dashboard-revenue">$0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>總訂單數</h3>
+                        <p class="stat-value" id="dashboard-orders-count">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>熱銷飲品</h3>
+                        <p class="stat-value" id="dashboard-bestseller">-</p>
+                    </div>
+                </div>
+
+                <div class="orders-history">
+                    <div class="history-header">
+                        <h2>訂單紀錄</h2>
+                        <button id="clear-data-btn" class="danger-btn">清除所有資料</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="orders-table">
+                            <thead>
+                                <tr>
+                                    <th>訂單編號</th>
+                                    <th>時間</th>
+                                    <th>內容</th>
+                                    <th>總計</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orders-tbody">
+                                <!-- Orders injected via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Modal for notifications -->
+    <div id="notification-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon">✅</div>
+            <h2 id="modal-title">結帳成功！</h2>
+            <p id="modal-message">您的訂單已送出。</p>
+            <button class="close-modal-btn" id="close-modal-btn">確定</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
